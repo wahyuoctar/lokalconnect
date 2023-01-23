@@ -29,6 +29,7 @@ const News = ({ gambar, title, date }) => {
           marginLeft: '20px',
         }}
         src={gambar}
+        alt="photo"
       />
       <Typography
         style={{

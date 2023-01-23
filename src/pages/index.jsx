@@ -24,11 +24,6 @@ const Home = () => {
     },
   ];
 
-  const renderNews = () => {
-    return data.map((val) => {
-      return <News date={val.date} image={val.image} title={val.title} />;
-    });
-  };
   return (
     <Box
       display="flex"
@@ -44,7 +39,7 @@ const Home = () => {
             gambar={val.image}
             date={val.date}
             title={val.title}
-            key="key"
+            key={val.title}
           />
         );
       })}

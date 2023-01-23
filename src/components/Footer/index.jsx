@@ -17,6 +17,7 @@ const Footer = () => {
             right: '16px',
           }}
           src={lokalconnect}
+          alt="footer"
         />
         <Box height="40px" width="100%" bgcolor="white"></Box>
       </Box>

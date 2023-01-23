@@ -39,7 +39,14 @@ const Home = () => {
       marginBottom="100px"
     >
       {data.map((val) => {
-        return <News gambar={val.image} date={val.date} title={val.title} />;
+        return (
+          <News
+            gambar={val.image}
+            date={val.date}
+            title={val.title}
+            key="key"
+          />
+        );
       })}
     </Box>
   );

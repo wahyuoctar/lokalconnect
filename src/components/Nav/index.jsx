@@ -13,7 +13,7 @@ const Nav = () => {
         zIndex: 10,
       }}
     >
-      <Image style={{ margin: '20px' }} src={lokalconnect} />
+      <Image style={{ margin: '20px' }} src={lokalconnect} alt="header" />
     </Box>
   );
 };

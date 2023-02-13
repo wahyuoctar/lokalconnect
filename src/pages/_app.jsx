@@ -1,17 +1,17 @@
-import { ThemeProvider } from '@mui/material';
-import '../styles/globals.css';
-import theme from 'theme';
-import Nav from 'components/Nav';
+// pages/_app.js
+import { ChakraProvider } from '@chakra-ui/react';
 import Footer from 'components/Footer';
+import Nav from 'components/Nav';
+import theme from './theme';
 
-const MyApp = ({ Component, pageProps }) => {
+function MyApp({ Component, pageProps }) {
   return (
-    <ThemeProvider theme={theme}>
+    <ChakraProvider theme={theme}>
       <Nav />
       <Component {...pageProps} />
       <Footer />
-    </ThemeProvider>
+    </ChakraProvider>
   );
-};
+}
 
 export default MyApp;

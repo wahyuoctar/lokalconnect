@@ -1,25 +1,32 @@
-import { Box, Typography } from '@mui/material';
 import Image from 'next/image';
 import lokalconnect from '../../assets/images/Asset 1@10x.png';
+import { Box } from '@chakra-ui/react';
 
 const Footer = () => {
   return (
     <>
-      <Box width="100%" position="fixed" bottom={0} zIndex={10}>
-        <Box height="50px" width="100%" bgcolor="black"></Box>
+      <Box
+        width="100%"
+        height="auto"
+        backgroundColor="black"
+        position="fixed"
+        bottom={0}
+        zIndex={10}
+      >
+        <Box height="50px" backgroundColor="black" width="100%"></Box>
         <Image
           style={{
-            margin: '20px',
+            // margin: '20px',
             width: '120px',
             height: '40px',
-            position: 'absolute',
-            bottom: '8px',
+            position: 'fixed',
+            bottom: '30px',
             right: '16px',
           }}
           src={lokalconnect}
           alt="footer"
         />
-        <Box height="40px" width="100%" bgcolor="white"></Box>
+        <Box height="50px" width="100%" backgroundColor="white"></Box>
       </Box>
     </>
   );

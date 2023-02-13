@@ -1,47 +1,36 @@
-import { Box, Grid, Typography } from '@mui/material';
+import { Box, Text } from '@chakra-ui/react';
 import Image from 'next/image';
 const News = ({ gambar, title, date }) => {
   return (
-    <Grid
-      style={{
-        minWidth: 'sm',
-        width: '100%',
-        height: '300px',
-        position: 'relative',
-        margin: '20px',
-      }}
+    <Box
+      position="relative"
+      height={['30vh', '40vh', '40vh', '80vh']}
+      width={['100vw', '100vw', '100vw', '100vw']}
     >
-      <Typography
-        style={{
-          top: '30px',
-          right: '0',
-          fontSize: '18px',
-          position: 'absolute',
-        }}
+      <Text
+        top={['3', '5', '5', '5']}
+        right={['5', '10', '10', '10']}
+        position="absolute"
+        color="white"
+        fontSize="18px"
       >
         {date}
-      </Typography>
+      </Text>
       <Image
-        style={{
-          width: '100%',
-          height: '100%',
-          marginRight: '20px',
-          marginLeft: '20px',
-        }}
+        style={{ width: '100%', height: '100%' }}
         src={gambar}
         alt="photo"
       />
-      <Typography
-        style={{
-          bottom: '10px',
-          left: '30px',
-          fontSize: '18px',
-          position: 'absolute',
-        }}
+      <Text
+        bottom="10px"
+        left="30px"
+        position="absolute"
+        fontSize="18px"
+        color="white"
       >
         {title}
-      </Typography>
-    </Grid>
+      </Text>
+    </Box>
   );
 };
 export default News;

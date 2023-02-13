@@ -16,7 +16,6 @@ const Footer = () => {
         <Box height="50px" backgroundColor="black" width="100%"></Box>
         <Image
           style={{
-            // margin: '20px',
             width: '120px',
             height: '40px',
             position: 'fixed',

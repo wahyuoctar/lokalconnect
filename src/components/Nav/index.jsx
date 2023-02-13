@@ -5,39 +5,20 @@ import {
   Box,
   Flex,
   IconButton,
-  MenuButton,
-  Menu,
-  MenuGroup,
-  MenuItem,
   useDisclosure,
-  MenuList,
-  MenuDivider,
   Drawer,
-  Button,
   DrawerOverlay,
   DrawerContent,
   DrawerCloseButton,
   DrawerHeader,
   DrawerBody,
-  Stack,
-  FormLabel,
-  Input,
-  InputGroup,
-  InputLeftAddon,
-  InputRightAddon,
-  Select,
-  DrawerFooter,
-  Textarea,
-  Text,
   Divider,
 } from '@chakra-ui/react';
-import { AddIcon, HamburgerIcon, SearchIcon } from '@chakra-ui/icons';
-
+import { HamburgerIcon, SearchIcon } from '@chakra-ui/icons';
+import SidebarMenu from 'components/Menu';
 const Nav = () => {
-  const [menu, setMenu] = useState(false);
   const firstField = React.useRef();
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const sizes = ['xs', 'sm', 'md', 'lg', 'xl', 'full'];
   return (
     <Box
       position="fixed"
@@ -53,18 +34,6 @@ const Nav = () => {
           <IconButton variant="unstyled">
             <SearchIcon color="white" fontSize="2xl" />
           </IconButton>
-
-          {/* <MenuList onMouseEnter={onOpen} onMouseLeave={onClose}>
-            <MenuItem>LKL News</MenuItem>
-            <MenuItem>LKL Updates</MenuItem>
-            <MenuItem>LKL Viral</MenuItem>
-            <MenuDivider />
-            <MenuItem>LKL Brand</MenuItem>
-            <MenuItem>LKL Review</MenuItem>
-            <MenuItem>LKL Recommendation</MenuItem>
-            <MenuItem>LKL Rising Star</MenuItem>
-            <MenuItem>LKL Preneur</MenuItem>
-          </MenuList> */}
 
           <IconButton variant="unstyled" onClick={onOpen}>
             <HamburgerIcon color="white" fontSize="3xl" />
@@ -83,72 +52,24 @@ const Nav = () => {
               </DrawerHeader>
 
               <DrawerBody>
-                <Text
-                  fontWeight="extrabold"
-                  fontFamily="sans-serif"
-                  fontSize="large"
-                  textTransform="uppercase"
-                >
-                  LKL News
-                </Text>
-                <Text
-                  paddingLeft="5"
-                  fontWeight="semibold"
-                  fontSize="large"
-                  textTransform="uppercase"
-                >
-                  LKL Updates
-                </Text>
-                <Text
-                  paddingLeft="5"
-                  fontWeight="semibold"
-                  fontSize="large"
-                  textTransform="uppercase"
-                >
-                  LKL Viral
-                </Text>
-                <Divider marginY="10" />
-                <Text
-                  fontWeight="extrabold"
-                  fontFamily="sans-serif"
-                  fontSize="large"
-                  textTransform="uppercase"
-                >
-                  LKL Brand
-                </Text>
-                <Text
-                  paddingLeft="5"
-                  fontWeight="semibold"
-                  fontSize="large"
-                  textTransform="uppercase"
-                >
-                  LKL Review
-                </Text>
-                <Text
-                  paddingLeft="5"
-                  fontWeight="semibold"
-                  fontSize="large"
-                  textTransform="uppercase"
-                >
-                  LKL Recommendation
-                </Text>
-                <Text
-                  paddingLeft="5"
-                  fontWeight="semibold"
-                  fontSize="large"
-                  textTransform="uppercase"
-                >
-                  LKL Rising Star
-                </Text>
-                <Divider marginY="10" />
-                <Text
-                  fontWeight="extrabold"
-                  fontFamily="sans-serif"
-                  fontSize="large"
-                  textTransform="uppercase"
-                >
-                  LKL Preneur
-                </Text>
+                <SidebarMenu
+                  title="Lkl news"
+                  subMenus={[
+                    { title: 'lkl updates', href: '#' },
+                    { title: 'lkl viral', href: '#' },
+                  ]}
+                />
+                <Divider marginY="5" />
+                <SidebarMenu
+                  title="Lkl Brand"
+                  subMenus={[
+                    { title: 'LKL Review', href: '#' },
+                    { title: 'LKL Recommendation', href: '#' },
+                    { title: 'LKL Rising Star', href: '#' },
+                  ]}
+                />
+                <Divider marginY="5" />
+                <SidebarMenu title="Lkl Preneur" href="#" />
               </DrawerBody>
 
               {/* <DrawerFooter borderTopWidth="1px">

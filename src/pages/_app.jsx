@@ -1,9 +1,17 @@
 // pages/_app.js
-import { ChakraProvider } from '@chakra-ui/react';
+import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 import Footer from 'components/Footer';
 import Nav from 'components/Nav';
-import theme from './theme';
 
+const theme = extendTheme({
+  styles: {
+    global: {
+      body: {
+        bg: 'black',
+      },
+    },
+  },
+});
 function MyApp({ Component, pageProps }) {
   return (
     <ChakraProvider theme={theme}>

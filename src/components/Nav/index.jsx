@@ -15,7 +15,7 @@ import {
   Divider,
 } from '@chakra-ui/react';
 import { HamburgerIcon, SearchIcon } from '@chakra-ui/icons';
-import SidebarMenu from 'components/Menu';
+import SidebarMenu from 'components/SidebarMenu';
 const Nav = () => {
   const firstField = React.useRef();
   const { isOpen, onOpen, onClose } = useDisclosure();

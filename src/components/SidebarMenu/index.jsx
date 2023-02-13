@@ -34,6 +34,7 @@ const SidebarMenu = ({ title, subMenus = [], href }) => {
                   fontWeight="semibold"
                   fontSize="large"
                   textTransform="uppercase"
+                  key={value.title}
                 >
                   <a href={value.href}>{value.title}</a>
                 </Text>

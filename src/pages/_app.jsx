@@ -1,23 +1,29 @@
 // pages/_app.js
-import { ChakraProvider, extendTheme } from '@chakra-ui/react';
+import { ChakraProvider } from '@chakra-ui/react';
 import Footer from 'components/Footer';
 import Nav from 'components/Nav';
+import { useRouter } from 'next/router';
+import { theme } from 'public/theme';
+import { Provider } from 'react-redux';
+import { store } from 'utils/redux/store';
 
-const theme = extendTheme({
-  styles: {
-    global: {
-      body: {
-        bg: 'black',
-      },
-    },
-  },
-});
 function MyApp({ Component, pageProps }) {
+  const router = useRouter();
   return (
-    <ChakraProvider theme={theme}>
-      <Nav />
-      <Component {...pageProps} />
-      <Footer />
+    <ChakraProvider
+      theme={router.pathname.startsWith('/login') ? undefined : theme}
+    >
+      <Provider store={store}>
+        {router.pathname.startsWith('/login') ? (
+          <Component {...pageProps} />
+        ) : (
+          <>
+            <Nav />
+            <Component {...pageProps} />
+            {/* <Footer /> */}
+          </>
+        )}
+      </Provider>
     </ChakraProvider>
   );
 }

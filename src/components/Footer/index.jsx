@@ -1,5 +1,6 @@
 import Image from 'next/image';
-import lokalconnect from '../../assets/images/Asset 1@10x.png';
+// import lokalconnect from '../../assets/images/Asset 1@10x.png';
+import lokalconnect from '../../public/images/Asset 1@10x.png';
 import { Box } from '@chakra-ui/react';
 
 const Footer = () => {

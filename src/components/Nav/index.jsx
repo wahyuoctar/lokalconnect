@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import lokalconnect from '../../assets/images/Asset1.png';
+import lokalconnect from '../../public/images/Asset1.png';
 import React, { useState } from 'react';
 import {
   Box,
@@ -13,12 +13,22 @@ import {
   DrawerHeader,
   DrawerBody,
   Divider,
+  Avatar,
+  Container,
+  Text,
+  Stack,
 } from '@chakra-ui/react';
-import { HamburgerIcon, SearchIcon } from '@chakra-ui/icons';
+import { HamburgerIcon, SearchIcon, CloseIcon } from '@chakra-ui/icons';
 import SidebarMenu from 'components/SidebarMenu';
+import MenuDrawer from 'components/MenuDrawer';
+import LoginDrawer from 'components/LoginDrawer';
 const Nav = () => {
   const firstField = React.useRef();
+  // const secondField = React.useRef();
+  const [login, setLogin] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
+  // const { isLogin, onLogin, offLogin } = useDisclosure();
+
   return (
     <Box
       position="fixed"
@@ -31,55 +41,20 @@ const Nav = () => {
       <Flex alignItems={'center'} justifyContent={'space-between'}>
         <Image src={lokalconnect} alt="header" />
         <Box>
-          <IconButton variant="unstyled">
+          <IconButton variant="unstyled" marginRight={5}>
             <SearchIcon color="white" fontSize="2xl" />
           </IconButton>
 
           <IconButton variant="unstyled" onClick={onOpen}>
             <HamburgerIcon color="white" fontSize="3xl" />
           </IconButton>
-          <Drawer
+          <MenuDrawer
+            firstField={firstField}
             isOpen={isOpen}
-            placement="right"
-            initialFocusRef={firstField}
             onClose={onClose}
-          >
-            <DrawerOverlay />
-            <DrawerContent>
-              <DrawerCloseButton />
-              <DrawerHeader borderBottomWidth="1px">
-                <Image src={lokalconnect} alt="header" />
-              </DrawerHeader>
-
-              <DrawerBody>
-                <SidebarMenu
-                  title="Lkl news"
-                  subMenus={[
-                    { title: 'lkl updates', href: '#' },
-                    { title: 'lkl viral', href: '#' },
-                  ]}
-                />
-                <Divider marginY="5" />
-                <SidebarMenu
-                  title="Lkl Brand"
-                  subMenus={[
-                    { title: 'LKL Review', href: '#' },
-                    { title: 'LKL Recommendation', href: '#' },
-                    { title: 'LKL Rising Star', href: '#' },
-                  ]}
-                />
-                <Divider marginY="5" />
-                <SidebarMenu title="Lkl Preneur" href="#" />
-              </DrawerBody>
-
-              {/* <DrawerFooter borderTopWidth="1px">
-                <Button variant="outline" mr={3} onClick={onClose}>
-                  Cancel
-                </Button>
-                <Button colorScheme="blue">Submit</Button>
-              </DrawerFooter> */}
-            </DrawerContent>
-          </Drawer>
+            isLogin={() => setLogin(true)}
+          />
+          <LoginDrawer isOpen={login} onClose={() => setLogin(false)} />
         </Box>
       </Flex>
     </Box>
